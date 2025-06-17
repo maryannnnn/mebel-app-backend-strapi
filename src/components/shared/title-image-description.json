@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_shared_title_image_descriptions",
+  "info": {
+    "displayName": "Title-Image-Description"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
