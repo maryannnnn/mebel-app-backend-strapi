@@ -9,16 +9,19 @@
     "metaTitle": {
       "type": "string",
       "maxLength": 60,
-      "required": true
+      "required": true,
+      "unique": true
     },
     "metaDescription": {
       "type": "text",
       "required": true,
-      "maxLength": 160
+      "maxLength": 160,
+      "unique": true
     },
     "titleLong": {
       "type": "string",
-      "required": true
+      "required": true,
+      "unique": true
     }
   }
 }

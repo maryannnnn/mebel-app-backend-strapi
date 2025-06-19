@@ -33,7 +33,8 @@
         }
       },
       "type": "string",
-      "required": true
+      "required": true,
+      "unique": true
     },
     "announceCompany": {
       "type": "component",

@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "categories",
+  "collectionName": "tags",
   "info": {
-    "singularName": "category",
-    "pluralName": "categories",
-    "displayName": "Category",
+    "singularName": "tag",
+    "pluralName": "tags",
+    "displayName": "Tag",
     "description": ""
   },
   "options": {
@@ -16,19 +16,19 @@
     }
   },
   "attributes": {
-    "titleCategory": {
+    "titleTag": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
       "type": "string",
-      "required": true,
-      "unique": true
+      "unique": true,
+      "required": true
     },
-    "titleLongMetaCategory": {
+    "titleLongMetaTag": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -36,7 +36,17 @@
       },
       "component": "shared.title-description-block"
     },
-    "announceCategory": {
+    "announceTag": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.title-image-description"
+    },
+    "contentTag": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -46,29 +56,24 @@
       },
       "component": "shared.title-image-description"
     },
-    "contentCategory": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "shared.title-image-description"
-    },
-    "slugCategory": {
+    "slugTag": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
       "type": "uid",
-      "targetField": "titleCategory"
+      "targetField": "titleTag"
     },
-    "parent": {
+    "category": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::category.category"
+    },
+    "tag": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tag.tag"
     }
   }
 }
