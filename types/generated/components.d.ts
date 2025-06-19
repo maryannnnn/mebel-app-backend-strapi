@@ -9,17 +9,15 @@ export interface SharedTitleDescriptionBlock extends Schema.Component {
   attributes: {
     metaTitle: Attribute.String &
       Attribute.Required &
-      Attribute.Unique &
       Attribute.SetMinMaxLength<{
         maxLength: 60;
       }>;
     metaDescription: Attribute.Text &
       Attribute.Required &
-      Attribute.Unique &
       Attribute.SetMinMaxLength<{
         maxLength: 160;
       }>;
-    titleLong: Attribute.String & Attribute.Required & Attribute.Unique;
+    titleLong: Attribute.String & Attribute.Required;
   };
 }
 

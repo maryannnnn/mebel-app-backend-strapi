@@ -933,7 +933,6 @@ export interface ApiCompanyCompany extends Schema.CollectionType {
       }>;
     titleCompany: Attribute.String &
       Attribute.Required &
-      Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1042,7 +1041,6 @@ export interface ApiServiceService extends Schema.CollectionType {
   attributes: {
     titleService: Attribute.String &
       Attribute.Required &
-      Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

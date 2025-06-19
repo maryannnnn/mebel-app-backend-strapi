@@ -10,18 +10,18 @@
       "type": "string",
       "maxLength": 60,
       "required": true,
-      "unique": true
+      "unique": false
     },
     "metaDescription": {
       "type": "text",
       "required": true,
       "maxLength": 160,
-      "unique": true
+      "unique": false
     },
     "titleLong": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     }
   }
 }
