@@ -852,19 +852,13 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    titleLongMetaCategory: Attribute.Component<
-      'shared.title-description-block',
-      true
-    > &
+    titleLongMetaCategory: Attribute.Component<'shared.title-description-block'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    announceCategory: Attribute.Component<
-      'shared.title-image-description',
-      true
-    > &
+    announceCategory: Attribute.Component<'shared.title-image-description'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -889,6 +883,11 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'api::category.category',
       'oneToOne',
       'api::category.category'
+    >;
+    services: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
+      'api::service.service'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1029,6 +1028,130 @@ export interface ApiCompanyCompany extends Schema.CollectionType {
   };
 }
 
+export interface ApiServiceService extends Schema.CollectionType {
+  collectionName: 'services';
+  info: {
+    singularName: 'service';
+    pluralName: 'services';
+    displayName: 'Service';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    titleService: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    titleLongMetaService: Attribute.Component<'shared.title-description-block'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    announceService: Attribute.Component<'shared.title-image-description'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    dynamicTopService: Attribute.DynamicZone<
+      ['shared.title-gallery-description', 'shared.title-video-description']
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    contentTopCompany: Attribute.Component<
+      'shared.title-image-description',
+      true
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    dynamicMiddleService: Attribute.DynamicZone<
+      ['shared.title-gallery-description', 'shared.title-video-description']
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    contentMiddleService: Attribute.Component<
+      'shared.title-image-description',
+      true
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    dynemicBottomService: Attribute.DynamicZone<
+      ['shared.title-gallery-description', 'shared.title-video-description']
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    faqService: Attribute.Component<'shared.title-description-faq', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slugService: Attribute.UID<'api::service.service', 'titleService'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    categorySevice: Attribute.Relation<
+      'api::service.service',
+      'manyToMany',
+      'api::category.category'
+    >;
+    tagService: Attribute.Relation<
+      'api::service.service',
+      'manyToMany',
+      'api::tag.tag'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::service.service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::service.service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::service.service',
+      'oneToMany',
+      'api::service.service'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiTagTag extends Schema.CollectionType {
   collectionName: 'tags';
   info: {
@@ -1084,6 +1207,11 @@ export interface ApiTagTag extends Schema.CollectionType {
       'api::category.category'
     >;
     tag: Attribute.Relation<'api::tag.tag', 'oneToOne', 'api::tag.tag'>;
+    services: Attribute.Relation<
+      'api::tag.tag',
+      'manyToMany',
+      'api::service.service'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1121,6 +1249,7 @@ declare module '@strapi/types' {
       'plugin::slugify.slug': PluginSlugifySlug;
       'api::category.category': ApiCategoryCategory;
       'api::company.company': ApiCompanyCompany;
+      'api::service.service': ApiServiceService;
       'api::tag.tag': ApiTagTag;
     }
   }

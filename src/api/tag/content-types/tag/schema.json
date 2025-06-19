@@ -74,6 +74,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::tag.tag"
+    },
+    "services": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::service.service",
+      "mappedBy": "tagService"
     }
   }
 }
