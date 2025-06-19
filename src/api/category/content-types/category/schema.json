@@ -65,16 +65,10 @@
       "type": "uid",
       "targetField": "titleCategory"
     },
-    "parent": {
+    "parentTag": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::category.category"
-    },
-    "services": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::service.service",
-      "mappedBy": "categorySevice"
     }
   }
 }

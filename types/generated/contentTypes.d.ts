@@ -879,15 +879,10 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    parent: Attribute.Relation<
+    parentTag: Attribute.Relation<
       'api::category.category',
       'oneToOne',
       'api::category.category'
-    >;
-    services: Attribute.Relation<
-      'api::category.category',
-      'manyToMany',
-      'api::service.service'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1034,6 +1029,7 @@ export interface ApiServiceService extends Schema.CollectionType {
     singularName: 'service';
     pluralName: 'services';
     displayName: 'Service';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1118,14 +1114,14 @@ export interface ApiServiceService extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    categorySevice: Attribute.Relation<
+    categoryServices: Attribute.Relation<
       'api::service.service',
-      'manyToMany',
+      'oneToMany',
       'api::category.category'
     >;
     tagService: Attribute.Relation<
       'api::service.service',
-      'manyToMany',
+      'oneToMany',
       'api::tag.tag'
     >;
     createdAt: Attribute.DateTime;
@@ -1201,16 +1197,11 @@ export interface ApiTagTag extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    category: Attribute.Relation<
+    parentTag: Attribute.Relation<'api::tag.tag', 'oneToOne', 'api::tag.tag'>;
+    categoryTag: Attribute.Relation<
       'api::tag.tag',
       'oneToOne',
       'api::category.category'
-    >;
-    tag: Attribute.Relation<'api::tag.tag', 'oneToOne', 'api::tag.tag'>;
-    services: Attribute.Relation<
-      'api::tag.tag',
-      'manyToMany',
-      'api::service.service'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

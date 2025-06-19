@@ -4,7 +4,8 @@
   "info": {
     "singularName": "service",
     "pluralName": "services",
-    "displayName": "Service"
+    "displayName": "Service",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -120,17 +121,15 @@
       "type": "uid",
       "targetField": "titleService"
     },
-    "categorySevice": {
+    "categoryServices": {
       "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::category.category",
-      "inversedBy": "services"
+      "relation": "oneToMany",
+      "target": "api::category.category"
     },
     "tagService": {
       "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::tag.tag",
-      "inversedBy": "services"
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
     }
   }
 }
