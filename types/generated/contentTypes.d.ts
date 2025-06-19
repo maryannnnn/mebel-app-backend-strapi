@@ -362,6 +362,92 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    singularName: 'category';
+    pluralName: 'categories';
+    displayName: 'Category';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    titleCategory: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    titleLongMetaCategory: Attribute.Component<
+      'shared.title-description-block',
+      true
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    announceCategory: Attribute.Component<
+      'shared.title-image-description',
+      true
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    contentCategory: Attribute.Component<
+      'shared.title-image-description',
+      true
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slugCategory: Attribute.UID<'api::category.category', 'titleCategory'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    parent: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'api::category.category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::category.category'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiCompanyCompany extends Schema.CollectionType {
   collectionName: 'companies';
   info: {
@@ -386,6 +472,7 @@ export interface ApiCompanyCompany extends Schema.CollectionType {
         };
       }>;
     titleCompany: Attribute.String &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -397,7 +484,7 @@ export interface ApiCompanyCompany extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    contentCompany: Attribute.Component<
+    contentTopCompany: Attribute.Component<
       'shared.title-image-description',
       true
     > &
@@ -406,19 +493,46 @@ export interface ApiCompanyCompany extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    slug: Attribute.UID<'api::company.company', 'titleCompany'> &
+    slugCompany: Attribute.UID<'api::company.company', 'titleCompany'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
     dynamicTopCompany: Attribute.DynamicZone<
-      [
-        'shared.title-gallery-description',
-        'shared.title-image-description',
-        'shared.title-video-description'
-      ]
+      ['shared.title-gallery-description', 'shared.title-video-description']
     > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    contentMiddleCompany: Attribute.Component<
+      'shared.title-image-description',
+      true
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    dynamicMiddleCompany: Attribute.DynamicZone<
+      ['shared.title-gallery-description', 'shared.title-video-description']
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    dynemicBottomCompany: Attribute.DynamicZone<
+      ['shared.title-gallery-description', 'shared.title-video-description']
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    faqCompany: Attribute.Component<'shared.title-description-faq', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -923,6 +1037,7 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::category.category': ApiCategoryCategory;
       'api::company.company': ApiCompanyCompany;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;

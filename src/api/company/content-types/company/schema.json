@@ -32,7 +32,8 @@
           "localized": true
         }
       },
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "announceCompany": {
       "type": "component",
@@ -44,7 +45,7 @@
       },
       "component": "shared.title-image-description"
     },
-    "contentCompany": {
+    "contentTopCompany": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -54,7 +55,7 @@
       },
       "component": "shared.title-image-description"
     },
-    "slug": {
+    "slugCompany": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -72,9 +73,52 @@
       "type": "dynamiczone",
       "components": [
         "shared.title-gallery-description",
-        "shared.title-image-description",
         "shared.title-video-description"
       ]
+    },
+    "contentMiddleCompany": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.title-image-description"
+    },
+    "dynamicMiddleCompany": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "shared.title-gallery-description",
+        "shared.title-video-description"
+      ]
+    },
+    "dynemicBottomCompany": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "shared.title-gallery-description",
+        "shared.title-video-description"
+      ]
+    },
+    "faqCompany": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.title-description-faq"
     }
   }
 }
