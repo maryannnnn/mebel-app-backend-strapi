@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_title_video_descriptions",
+  "info": {
+    "displayName": "TitleVideoDescription",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "videoTitle": {
+      "type": "string"
+    },
+    "videoURL": {
+      "type": "string"
+    },
+    "videoDescription": {
+      "type": "richtext"
+    }
+  }
+}

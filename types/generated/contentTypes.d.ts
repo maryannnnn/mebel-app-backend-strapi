@@ -379,19 +379,46 @@ export interface ApiCompanyCompany extends Schema.CollectionType {
     };
   };
   attributes: {
-    TitleLongMeta: Attribute.Component<'shared.title-description-block'> &
+    titleLongMetaCompany: Attribute.Component<'shared.title-description-block'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Title: Attribute.String &
+    titleCompany: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Announce: Attribute.Component<'shared.title-image-description'> &
+    announceCompany: Attribute.Component<'shared.title-image-description'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    contentCompany: Attribute.Component<
+      'shared.title-image-description',
+      true
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.UID<'api::company.company', 'titleCompany'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    dynamicTopCompany: Attribute.DynamicZone<
+      [
+        'shared.title-gallery-description',
+        'shared.title-image-description',
+        'shared.title-video-description'
+      ]
+    > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_title_description_faqs",
+  "info": {
+    "displayName": "TitleDescriptionFAQ"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string"
+    },
+    "answer": {
+      "type": "richtext"
+    }
+  }
+}

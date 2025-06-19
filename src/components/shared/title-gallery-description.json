@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_shared_title_gallery_descriptions",
+  "info": {
+    "displayName": "TitleGalleryDescription"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "gallery": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

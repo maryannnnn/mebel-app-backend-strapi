@@ -1,14 +1,15 @@
 {
   "collectionName": "components_shared_title_descriptions",
   "info": {
-    "displayName": "Title-Description"
+    "displayName": "TitleDescription",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "Description": {
+    "description": {
       "type": "richtext"
     }
   }
