@@ -1,14 +1,15 @@
 module.exports = {
-  // graphql: {
-  //   enabled: true,
-  //   config: {
-  //     endpoint: '/graphql',
-  //     shadowCRUD: true,
-  //     playgroundAlways: true,
-  //     depthLimit: 7,
-  //     amountLimit: 100,
-  //   },
-  // },
+  graphql: {
+    enabled: true,
+    config: {
+      playgroundAlways: true, // 👈 вот это главное
+      defaultLimit: 10,
+      maxLimit: 100,
+      apolloServer: {
+        introspection: true,  // 👈 это тоже важно для продакшена
+      },
+    },
+  },
   // email: {
   //   config: {
   //     provider: 'nodemailer',
