@@ -65,7 +65,7 @@
       "type": "uid",
       "targetField": "titleCategory"
     },
-    "parentTag": {
+    "parentCategory": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::category.category"

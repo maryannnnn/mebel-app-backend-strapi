@@ -879,7 +879,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    parentTag: Attribute.Relation<
+    parentCategory: Attribute.Relation<
       'api::category.category',
       'oneToOne',
       'api::category.category'
